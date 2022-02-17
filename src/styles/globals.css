@@ -14,7 +14,6 @@ body > div {
 body {
   font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
   background-color: #dddddd;
-  overflow-y: scroll;
 }
 ul,
 li {
