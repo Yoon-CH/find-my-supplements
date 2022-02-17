@@ -3,6 +3,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { Search } from '@components/Search';
+import styled from '@emotion/styled';
 
 export const ProductContext = createContext({ data: [] });
 
@@ -22,11 +23,17 @@ const Home: NextPage = () => {
         <title>나의 영양제 찾기</title>
       </Head>
 
-      <main>
+      <Main>
         <Search />
-      </main>
+      </Main>
     </ProductContext.Provider>
   );
 };
 
 export default Home;
+
+const Main = styled.main`
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to top, #43ddb2 0%, #72afd3 100%);
+`;
