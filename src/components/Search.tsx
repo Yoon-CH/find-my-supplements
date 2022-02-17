@@ -6,7 +6,6 @@ import { SearchResult } from './SearchResult';
 
 export const Search = () => {
   const { data } = useContext(ProductContext);
-
   return (
     <SearchSection>
       <SearchForm />

@@ -35,5 +35,6 @@ export default Home;
 const Main = styled.main`
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
   background-image: linear-gradient(to top, #43ddb2 0%, #72afd3 100%);
 `;
