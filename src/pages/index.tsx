@@ -13,10 +13,9 @@ const Home: NextPage = () => {
   useEffect(() => {
     (async () => {
       const products = await axios.get('api/productList');
-      setData(products.data.requests.requests);
+      setData(products.data.requests);
     })();
   }, []);
-
   return (
     <ProductContext.Provider value={{ data }}>
       <Head>
