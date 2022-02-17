@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+body > div {
+  height: 100%;
+}
+body {
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  background-color: #dddddd;
+  overflow-y: scroll;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+}
+button {
+  background-color: transparent;
+  line-height: inherit;
+  border: none;
+}
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  background: none;
+  line-height: 1;
+  font: inherit;
+}
+.sr-only {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  top: auto;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
