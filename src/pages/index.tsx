@@ -7,12 +7,12 @@ import { SearchSection } from '@components/SearchSection';
 import { DataTypes } from '@types';
 
 export const ProductContext = createContext({
-  data: [],
-  setData: (data: any) => {},
+  data: [] as DataTypes[],
+  setData: (data: DataTypes[]) => {},
 });
 
 const Home: NextPage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataTypes[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -38,7 +38,7 @@ export default Home;
 const Main = styled.main`
   width: 100vw;
   height: auto;
-  min-height: 100%;
   max-width: 100%;
-  background-image: linear-gradient(to top, #43ddb2 0%, #72afd3 100%);
+  min-height: 100%;
+  background: #f1f1f1;
 `;
