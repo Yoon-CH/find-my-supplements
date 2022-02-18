@@ -1,12 +1,19 @@
 import { COLOR } from '@constants';
 import styled from '@emotion/styled';
-import React from 'react';
+import { ProductContext } from '@pages';
+import React, { useContext } from 'react';
 import { ResultList } from './ResultList';
 
 export const SearchResult = () => {
+  const { data } = useContext(ProductContext);
+  console.log(data.slice(0, 100));
+
   return (
     <ResultContainer>
-      <ResultList />
+      {data &&
+        data
+          .slice(0, 100)
+          .map((item, index) => <ResultList key={index} item={item} />)}
     </ResultContainer>
   );
 };

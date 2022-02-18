@@ -1,14 +1,20 @@
 import styled from '@emotion/styled';
 import { SupplementImage } from '@images';
+import { DataTypes } from '@types';
 import React from 'react';
 
-export const ResultList = () => {
+interface ResultListProps {
+  item: DataTypes;
+}
+
+export const ResultList = ({ item }: ResultListProps) => {
+  const { brand, name } = item;
   return (
     <ItemBox>
       <ProductImage src={SupplementImage.src} alt="supplementImage" />
       <ProductInfoBox>
-        <h3>브랜드</h3>
-        <h2>제품 이름</h2>
+        <h3>{brand}</h3>
+        <h2>{name}</h2>
       </ProductInfoBox>
     </ItemBox>
   );
