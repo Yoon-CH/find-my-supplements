@@ -37,10 +37,10 @@ const SearchContainer = styled.section`
   align-items: center;
   margin: 0 auto;
   max-width: ${STYLE.MAX_WIDTH};
-  min-height: 100vh;
   padding: 60px 0;
   @media ${DEVICE.MEDIUM} {
-    padding: 80px 15px;
+    padding: 50px 15px;
+    min-height: auto;
   }
   @media ${DEVICE.SMALL} {
     padding: 30px 15px;

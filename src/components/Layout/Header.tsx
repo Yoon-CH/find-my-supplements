@@ -38,6 +38,7 @@ const HeaderContainer = styled.div`
 
 const Logo = styled.div`
   line-height: 1;
+  cursor: pointer;
   span {
     color: #555;
     text-transform: uppercase;

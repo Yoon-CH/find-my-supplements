@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from 'react';
 import styled from '@emotion/styled';
-import { COLOR } from '@constants';
+import { COLOR, DEVICE } from '@constants';
 import { DataTypes } from '@types';
 import { ResultList } from './';
 import axios from 'axios';
@@ -52,12 +52,13 @@ export const SearchResult = ({
     if (itemRef.current) observer.observe(itemRef.current);
     return () => observer.disconnect();
   }, [fetcher]);
+
+  console.log(list);
+
   return (
     <ResultContainer>
       {list.length ? (
-        list
-          .slice(0, 100)
-          .map((item, index) => <ResultList key={index} item={item} />)
+        list.map((item, index) => <ResultList key={index} item={item} />)
       ) : (
         <EmptyList>일치하는 아이템이 존재하지 않습니다.</EmptyList>
       )}
@@ -69,11 +70,31 @@ export const SearchResult = ({
 const ResultContainer = styled.ul`
   position: relative;
   width: 50vw;
-  height: 39.5rem;
+  height: 400px;
   overflow-y: scroll;
   background-color: ${COLOR.WHITE};
   border-radius: 5px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.78);
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${COLOR.WHITE};
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #777;
+  }
+
+  @media ${DEVICE.MEDIUM} {
+    width: 100%;
+  }
 `;
 
 const EmptyList = styled.div`

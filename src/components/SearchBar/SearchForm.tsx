@@ -37,12 +37,16 @@ const SearchFormContainer = styled.div`
   h3 {
     font-size: 35px;
     margin-bottom: 20px;
+    padding-left: 10px;
     @media ${DEVICE.SMALL} {
       font-size: 30px;
       span {
         display: block;
       }
     }
+  }
+  @media ${DEVICE.MEDIUM} {
+    width: 100%;
   }
 `;
 
@@ -53,6 +57,9 @@ const Form = styled.form`
   height: 5rem;
   background-color: ${COLOR.WHITE};
   border-radius: 5px;
+  @media ${DEVICE.SMALL} {
+    height: 3rem;
+  }
 `;
 
 const TextInput = styled.input`
@@ -62,6 +69,7 @@ const TextInput = styled.input`
   padding-left: 20px;
   font-weight: bold;
   border-radius: 5px;
+  padding-left: 10px;
   &::placeholder {
     color: ${COLOR.BLACK_LIGHT};
   }
