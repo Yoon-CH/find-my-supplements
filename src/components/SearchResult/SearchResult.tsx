@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useEffect,
   useRef,
-  useState,
 } from 'react';
 import styled from '@emotion/styled';
 import { COLOR } from '@constants';
@@ -75,7 +74,6 @@ const ResultContainer = styled.ul`
   background-color: ${COLOR.WHITE};
   border-radius: 5px;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.78);
-  /* flex: 1; */
 `;
 
 const EmptyList = styled.div`

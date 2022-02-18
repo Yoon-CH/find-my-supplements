@@ -1,6 +1,5 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { ProductContext } from '@pages';
 import { SearchForm } from '@components/SearchBar';
 import { SearchResult } from '@components/SearchResult';
 import { DataTypes } from '@types';
@@ -39,7 +38,7 @@ const SearchContainer = styled.section`
   margin: 0 auto;
   max-width: ${STYLE.MAX_WIDTH};
   min-height: 100vh;
-  padding: 80px 0;
+  padding: 60px 0;
   @media ${DEVICE.MEDIUM} {
     padding: 80px 15px;
   }
