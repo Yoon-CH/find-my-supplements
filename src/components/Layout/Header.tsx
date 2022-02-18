@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { STYLE } from '@constants';
+import { DEVICE, STYLE } from '@constants';
 
 export const Header = () => {
   return (
@@ -76,5 +76,8 @@ const MenuList = styled.ul`
       background: #333;
       bottom: 0;
     }
+  }
+  @media ${DEVICE.SMALL} {
+    display: none;
   }
 `;

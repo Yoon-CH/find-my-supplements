@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { COLOR } from '@constants';
+import { COLOR, DEVICE } from '@constants';
 import styled from '@emotion/styled';
 
 interface SearchFormProps {
@@ -16,7 +16,9 @@ export const SearchForm = ({ value, handleChange }: SearchFormProps) => {
 
   return (
     <SearchFormContainer>
-      <h3>나에게 딱 맞는 영양제를 찾아보세요!</h3>
+      <h3>
+        나에게 딱 맞는 <span>영양제를 찾아보세요!</span>
+      </h3>
       <Form onSubmit={e => e.preventDefault()}>
         <TextInput
           type="text"
@@ -32,10 +34,16 @@ export const SearchForm = ({ value, handleChange }: SearchFormProps) => {
 
 const SearchFormContainer = styled.div`
   width: 100%;
-  padding: 5rem 0;
+  margin-bottom: 30px;
   h3 {
     font-size: 50px;
     margin-bottom: 20px;
+    @media ${DEVICE.SMALL} {
+      font-size: 30px;
+      span {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -54,6 +62,9 @@ const TextInput = styled.input`
   font-weight: bold;
   &::placeholder {
     color: ${COLOR.BLACK_LIGHT};
+  }
+  @media ${DEVICE.SMALL} {
+    font-size: 15px;
   }
 `;
 
