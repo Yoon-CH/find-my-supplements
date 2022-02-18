@@ -1,12 +1,15 @@
+import { createContext, useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
 import { Search } from '@components/SearchBar/Search';
-import styled from '@emotion/styled';
 import { SearchResult } from '@components/SearchResult';
+import styled from '@emotion/styled';
 
-export const ProductContext = createContext({ data: [] });
+export const ProductContext = createContext({
+  data: [],
+  setData: (data: any) => {},
+});
 
 const Home: NextPage = () => {
   const [data, setData] = useState([]);
@@ -18,7 +21,7 @@ const Home: NextPage = () => {
     })();
   }, []);
   return (
-    <ProductContext.Provider value={{ data }}>
+    <ProductContext.Provider value={{ data, setData }}>
       <Head>
         <title>나의 영양제 찾기</title>
       </Head>
