@@ -13,7 +13,7 @@ export const ResultList = ({ item }: ResultListProps) => {
     <ItemBox>
       <ProductImage src={SupplementImage.src} alt="supplementImage" />
       <ProductInfoBox>
-        <h3>{brand}</h3>
+        {brand && <h3>{brand}</h3>}
         <h2>{name}</h2>
       </ProductInfoBox>
     </ItemBox>
@@ -22,6 +22,11 @@ export const ResultList = ({ item }: ResultListProps) => {
 
 const ItemBox = styled.li`
   display: flex;
+  padding: 15px 20px;
+
+  & + li {
+    border-top: 1px solid #ddd;
+  }
 `;
 
 const ProductImage = styled.img`
