@@ -10,13 +10,14 @@ export const ProductContext = createContext({
   data: [] as DataTypes[],
   setData: (data: DataTypes[]) => {},
 });
-
 const Home: NextPage = () => {
   const [data, setData] = useState<DataTypes[]>([]);
 
   useEffect(() => {
     (async () => {
-      const products = await axios.get('api/productList');
+      const products = await axios.get(`api/productList`, {
+        params: { length: 20 },
+      });
       setData(products.data.requests);
     })();
   }, []);

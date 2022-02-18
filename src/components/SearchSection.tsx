@@ -5,27 +5,25 @@ import { SearchForm } from '@components/SearchBar';
 import { SearchResult } from '@components/SearchResult';
 import { DataTypes } from '@types';
 import { STYLE } from '@constants';
+import axios from 'axios';
 
 export const SearchSection = () => {
   const [value, setValue] = useState('');
+  const [results, setResults] = useState<DataTypes[]>([]);
   const { data, setData } = useContext(ProductContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    const products = await axios.get(`api/productList`, {
+      params: { length: 20, text: e.target.value },
+    });
+    setResults(products.data.requests);
   };
-
-  const filteredList = data.filter((item: DataTypes) => {
-    const filterName = item.name.toLowerCase().includes(value.toLowerCase());
-    const filterBrand = item.brand.toLowerCase().includes(value.toLowerCase());
-    return filterName || filterBrand;
-  });
-
-  console.log(filteredList);
 
   return (
     <SearchContainer>
       <SearchForm value={value} handleChange={handleChange} />
-      <SearchResult list={filteredList} />
+      <SearchResult list={results} />
     </SearchContainer>
   );
 };
