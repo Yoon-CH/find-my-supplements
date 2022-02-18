@@ -23,12 +23,14 @@ export const SearchResult = ({ list }: SearchResultProps) => {
 };
 
 const ResultContainer = styled.ul`
+  position: relative;
   width: 50vw;
+  height: 39.5rem;
+  overflow-y: scroll;
   background-color: ${COLOR.WHITE};
   border-radius: 5px;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.78);
-  flex: 1;
-  position: relative;
+  /* flex: 1; */
 `;
 
 const EmptyList = styled.div`

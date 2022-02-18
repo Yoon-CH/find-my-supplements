@@ -14,5 +14,25 @@ export default function handler(
 ) {
   const { requests: result } = JSON.parse(JSON.stringify(db));
   const sortedResult = mergeSort(result);
-  res.status(200).json({ requests: JSON.parse(JSON.stringify(sortedResult)) });
+  const {
+    query: { length, text },
+  } = req;
+  const lengthNum = Number(length);
+  if (text) {
+    const filteredList = sortedResult.filter((item: DataTypes) => {
+      const nameRegex = new RegExp(`${text}`, 'gi');
+      const brandRegex = new RegExp(`${text}`, 'gi');
+      const filterName = item.name.match(nameRegex);
+      const filterBrand = item.brand.match(brandRegex);
+      return filterName || filterBrand;
+    });
+
+    const slicedResult = filteredList.slice(0, lengthNum);
+    res
+      .status(200)
+      .json({ requests: JSON.parse(JSON.stringify(slicedResult)) });
+    return;
+  }
+  const slicedResult = sortedResult.slice(0, lengthNum);
+  res.status(200).json({ requests: JSON.parse(JSON.stringify(slicedResult)) });
 }
