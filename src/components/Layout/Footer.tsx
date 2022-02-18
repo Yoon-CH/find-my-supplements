@@ -7,9 +7,7 @@ export const Footer = () => {
     <FooterContainer>
       <FooterBox>
         <CompanyInfo>
-          <CompanyBox>
-            <Company>(주) 나의 영양제 찾기</Company>
-          </CompanyBox>
+          <CompanyName>(주) 나의 영양제 찾기</CompanyName>
           <CompanyDetailInfo>
             대표 : 현호님소고기4조 | 이메일 : plsBeef.com
           </CompanyDetailInfo>
@@ -34,7 +32,7 @@ export const Footer = () => {
 };
 
 const FooterContainer = styled.footer`
-  padding: 30px 0;
+  padding: 50px 0;
   @media ${DEVICE.MEDIUM} {
     padding: 30px;
   }
@@ -47,15 +45,12 @@ const FooterBox = styled.div`
   margin: 0 auto;
 `;
 
-const CompanyInfo = styled.ul``;
-
-const CompanyBox = styled.div`
-  display: flex;
-  align-items: center;
+const CompanyInfo = styled.ul`
+  color: ${COLOR.GRAY};
 `;
 
-const Company = styled.h3`
-  margin: 10px 5px;
+const CompanyName = styled.h3`
+  margin-bottom: 5px;
   font-weight: 500;
   color: ${COLOR.BLACK};
 `;
@@ -64,19 +59,21 @@ const CompanyDetailInfo = styled.li`
   padding: 3px;
   font-size: 13px;
   font-weight: 300;
-  color: ${COLOR.BLACK};
+  color: ${COLOR.BLACK_LIGHT};
 `;
 
 const PageInfo = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @media ${DEVICE.SMALL} {
     display: none;
   }
 `;
 
 const PageDetailInfo = styled.li`
-  padding: 5px;
-  margin-bottom: 20px;
+  padding: 3px;
   font-size: 15px;
-  color: ${COLOR.BLACK};
+  color: ${COLOR.BLACK_LIGHT};
   cursor: pointer;
 `;

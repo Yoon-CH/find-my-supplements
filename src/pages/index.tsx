@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { SearchSection } from '@components/SearchSection';
+import { DEVICE } from '@constants';
 
 const Home: NextPage = () => {
   return (
@@ -24,4 +25,7 @@ const Main = styled.main`
   max-width: 100%;
   min-height: 100%;
   background: #f1f1f1;
+  @media ${DEVICE.MEDIUM} {
+    min-height: auto;
+  }
 `;
