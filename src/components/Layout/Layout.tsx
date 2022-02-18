@@ -1,16 +1,12 @@
-import styled from '@emotion/styled';
 import { Header } from '.';
+import { Footer } from './Footer';
 
 export const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Header />
       <>{children}</>
+      <Footer />
     </>
   );
 };
-
-const Container = styled.div`
-  width: 100%;
-  min-height: 100%;
-`;
