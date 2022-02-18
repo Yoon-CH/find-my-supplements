@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { ProductContext } from '@pages';
 import { SearchForm } from '@components/SearchBar';
@@ -8,22 +8,26 @@ import { DEVICE, STYLE } from '@constants';
 import axios from 'axios';
 
 export const SearchSection = () => {
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [results, setResults] = useState<DataTypes[]>([]);
-  const { data, setData } = useContext(ProductContext);
-
+  const [range, setRange] = useState(15);
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
     const products = await axios.get(`api/productList`, {
-      params: { length: 20, text: e.target.value },
+      params: { length: 15, text: e.target.value },
     });
     setResults(products.data.requests);
   };
-
   return (
     <SearchContainer>
-      <SearchForm value={value} handleChange={handleChange} />
-      <SearchResult list={results} />
+      <SearchForm inputValue={inputValue} handleChange={handleChange} />
+      <SearchResult
+        list={results}
+        setResults={setResults}
+        inputValue={inputValue}
+        range={range}
+        setRange={setRange}
+      />
     </SearchContainer>
   );
 };

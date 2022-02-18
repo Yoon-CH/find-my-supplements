@@ -12,16 +12,6 @@ export const ProductContext = createContext({
 });
 const Home: NextPage = () => {
   const [data, setData] = useState<DataTypes[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const products = await axios.get(`api/productList`, {
-        params: { length: 20 },
-      });
-      setData(products.data.requests);
-    })();
-  }, []);
-
   return (
     <ProductContext.Provider value={{ data, setData }}>
       <Head>
