@@ -1,20 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { BiSearch } from 'react-icons/bi';
-import { ProductContext } from '@pages';
 import { COLOR } from '@constants';
 import styled from '@emotion/styled';
 
-export const SearchForm = () => {
-  const [value, setValue] = useState('');
-  const { data, setData } = useContext(ProductContext);
+interface SearchFormProps {
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    console.log(value);
-  };
-
+export const SearchForm = ({ value, handleChange }: SearchFormProps) => {
   return (
-    <Form>
+    <Form onSubmit={e => e.preventDefault()}>
       <TextInput
         type="text"
         placeholder="찾으시는 영양제 이름 또는 브랜드명을 입력해주세요"
