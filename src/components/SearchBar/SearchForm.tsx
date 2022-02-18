@@ -3,17 +3,16 @@ import { COLOR, DEVICE } from '@constants';
 import styled from '@emotion/styled';
 
 interface SearchFormProps {
-  value: string;
+  inputValue: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const SearchForm = ({ value, handleChange }: SearchFormProps) => {
+export const SearchForm = ({ inputValue, handleChange }: SearchFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
-
   return (
     <SearchFormContainer>
       <h3>
@@ -23,7 +22,7 @@ export const SearchForm = ({ value, handleChange }: SearchFormProps) => {
         <TextInput
           type="text"
           placeholder="찾으시는 영양제 이름 또는 브랜드명을 입력해주세요"
-          value={value}
+          value={inputValue}
           onChange={handleChange}
           ref={inputRef}
         />
