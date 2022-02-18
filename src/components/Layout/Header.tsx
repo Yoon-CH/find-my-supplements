@@ -45,7 +45,7 @@ const Logo = styled.div`
   }
   h2 {
     margin-top: 2px;
-    font-size: 26px;
+    font-size: 20px;
   }
 `;
 
@@ -57,7 +57,7 @@ const MenuList = styled.ul`
     align-items: center;
     min-width: 85px;
     height: ${STYLE.HEADER_H};
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
     cursor: pointer;
     & + li {

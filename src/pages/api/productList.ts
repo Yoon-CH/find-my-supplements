@@ -18,21 +18,13 @@ export default function handler(
     query: { length, text },
   } = req;
   const lengthNum = Number(length);
-  if (text) {
-    const filteredList = sortedResult.filter((item: DataTypes) => {
-      const nameRegex = new RegExp(`${text}`, 'gi');
-      const brandRegex = new RegExp(`${text}`, 'gi');
-      const filterName = item.name.match(nameRegex);
-      const filterBrand = item.brand.match(brandRegex);
-      return filterName || filterBrand;
-    });
-
-    const slicedResult = filteredList.slice(0, lengthNum);
-    res
-      .status(200)
-      .json({ requests: JSON.parse(JSON.stringify(slicedResult)) });
-    return;
-  }
-  const slicedResult = sortedResult.slice(0, lengthNum);
+  const filteredList = sortedResult.filter((item: DataTypes) => {
+    const regex = new RegExp(`${text}`, 'gi');
+    const filterName = item.name.match(regex);
+    const filterBrand = item.brand.match(regex);
+    return filterName || filterBrand;
+  });
+  const slicedResult = filteredList.slice(0, lengthNum);
   res.status(200).json({ requests: JSON.parse(JSON.stringify(slicedResult)) });
+  return;
 }
