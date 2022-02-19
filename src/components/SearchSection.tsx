@@ -10,20 +10,18 @@ export const SearchSection = () => {
   const [inputValue, setInputValue] = useState('');
   const [results, setResults] = useState<DataTypes[]>([]);
   const [range, setRange] = useState(15);
+
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.value) {
-      setInputValue(e.target.value);
-      setRange(15);
-      setResults([]);
-      return;
-    }
-    setRange(15);
+    const notWordRegex = new RegExp('([^가-힣a-z\x20])', 'i');
     setInputValue(e.target.value);
-    const products = await axios.get(`api/productList`, {
-      params: { length: 15, text: e.target.value },
-    });
+    setRange(15);
+    if (notWordRegex.test(e.target.value)) return;
+    if (!e.target.value) return setResults([]);
+    const params = { length: 15, text: e.target.value };
+    const products = await axios.get(`api/productList`, { params });
     setResults(products.data.requests);
   };
+
   return (
     <SearchContainer>
       <SearchForm inputValue={inputValue} handleChange={handleChange} />
