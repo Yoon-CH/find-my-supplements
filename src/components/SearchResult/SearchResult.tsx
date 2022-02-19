@@ -53,8 +53,6 @@ export const SearchResult = ({
     return () => observer.disconnect();
   }, [fetcher]);
 
-  console.log(list);
-
   return (
     <ResultContainer>
       {list.length ? (

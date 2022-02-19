@@ -11,6 +11,13 @@ export const SearchSection = () => {
   const [results, setResults] = useState<DataTypes[]>([]);
   const [range, setRange] = useState(15);
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.value) {
+      setInputValue(e.target.value);
+      setRange(15);
+      setResults([]);
+      return;
+    }
+    setRange(15);
     setInputValue(e.target.value);
     const products = await axios.get(`api/productList`, {
       params: { length: 15, text: e.target.value },
