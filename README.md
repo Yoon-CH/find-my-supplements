@@ -92,7 +92,6 @@
 > 초기 데이터 로딩 시간이 길어질 수 있음을 감안하여, Next.js를 통해 SSR을 구현하기로 결정
 
 ![Untitled 1](https://user-images.githubusercontent.com/67448481/154735564-6b5c72a4-a391-4edf-a4a8-fa8464f30b32.png)
-tent.com/67448481/154735526-746d0eec-f188-4b4c-a3e3-6e19b08b1157.png)
 
 1번과 같은 경우는, 초기 렌더링 시에 한 번만 API요청을 보낸 뒤, `state`에 모든 데이터를 담아둔다. 그리고 `input`박스의 `onChange` 이벤트에 따라 `String.match()`를 통한 빠른 검색결과 리스팅을 구현할 수 있다.
 
