@@ -81,7 +81,7 @@
 
 ### onChange 이벤트에 따른 데이터 fetch 방식 논의
 
-> 팀원들과의 논의 결과 두 종류의 `fetch` 방식이 추려졌고, 이하와 같은 논리적 이유에 따라 **1번** `data fetch` 방식을 결정했다.
+> 팀원들과의 논의 결과 두 종류의 `fetch` 방식이 추려졌고, 이하와 같은 논리적 이유에 따라 **2번** `data fetch` 방식을 결정했다.
 
 ![Untitled](https://user-images.githubusercontent.com/67448481/154735585-49b442da-c3cc-4c15-839c-ad3bd44ec1b5.png)
 
